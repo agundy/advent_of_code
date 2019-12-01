@@ -6,6 +6,7 @@ defmodule Solutions.Day1 do
       |> Kernel.trunc()
       |> Kernel.-(2)
 
+    # Fuel has it's own weight and requires additional fuel to carry.
     if fuel > 0 do
       fuel + calculate_fuel(fuel)
     else
@@ -19,6 +20,7 @@ defmodule Solutions.Day1 do
       |> Stream.map(&String.trim_trailing/1)
       |> Enum.to_list()
 
+    # add all fuel costs up for the fleet
     Enum.reduce(ship_masses, 0, fn mass, acc ->
       mass
       |> String.to_integer()
